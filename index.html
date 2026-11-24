@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Lexware Office Migrator: website handoff</title>
+<style>
+body { font: 16px/1.55 system-ui, sans-serif; max-width: 980px; margin: 0 auto;
+  padding: 24px 16px; color: #1b1f24; background: #fff; }
+table { border-collapse: collapse; display: block; overflow-x: auto; }
+th, td { border: 1px solid #d0d7de; padding: 6px 10px; text-align: left;
+  vertical-align: top; }
+code { background: #f1f3f5; padding: 1px 4px; border-radius: 4px; }
+blockquote { border-left: 4px solid #d0d7de; margin-left: 0; padding-left: 16px; }
+figure { margin: 32px 0; }
+figure img { width: 100%; height: auto; border: 1px solid #d0d7de; }
+figcaption { font-size: 14px; margin-top: 6px; word-break: break-all; }
+</style>
+</head>
+<body>
+<p><strong>Note for the agent:</strong> all images on this page are public
+files. Download each one from its URL (for example with <code>curl -L -O</code>)
+and store it in the website repository. Do not hotlink these URLs on the
+final page.</p>
+<h1>Handoff: website page for the Lexware Office Migrator</h1>
+<p>For the agent that builds the page. Everything on this page comes from the<br>
+module source, its README, the migration plan and a live Odoo 20 database<br>
+with the migrated Lexware demo account. Do not add a claim that is not here.</p>
+<h2>1. The task</h2>
+<p>Build one product page for the <strong>Lexware Office Migrator</strong>, a free Odoo<br>
+module of bloopark systems. The page explains what the module does, shows it<br>
+with screenshots, and gives one call to action: contact bloopark for help<br>
+with a migration.</p>
+<h2>2. Where the material is</h2>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>What</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Repository</td>
+<td><code class="notranslate">https://github.com/blooparksystems/lexware</code> (private)</td>
+</tr>
+<tr>
+<td>Branch with this handoff</td>
+<td><code class="notranslate">docs/LXM-7_website-handoff</code></td>
+</tr>
+<tr>
+<td>This file</td>
+<td><code class="notranslate">docs/website-handoff/HANDOFF.md</code></td>
+</tr>
+<tr>
+<td>Screenshots (13 PNG, 1440 x 900)</td>
+<td><code class="notranslate">docs/website-handoff/screenshots/</code></td>
+</tr>
+<tr>
+<td>Module icon</td>
+<td><code class="notranslate">addons_bp/lexware_migrator/static/description/icon.svg</code>, <code class="notranslate">icon.png</code></td>
+</tr>
+<tr>
+<td>bloopark logo</td>
+<td><code class="notranslate">addons_bp/lexware_migrator/static/description/images/bloopark-logo.svg</code></td>
+</tr>
+<tr>
+<td>Feature icons (SVG)</td>
+<td><code class="notranslate">addons_bp/lexware_migrator/static/description/images/*.svg</code></td>
+</tr>
+<tr>
+<td>Odoo Apps store page (layout and copy reference)</td>
+<td><code class="notranslate">addons_bp/lexware_migrator/static/description/index.html</code></td>
+</tr>
+<tr>
+<td>Module README</td>
+<td><code class="notranslate">addons_bp/lexware_migrator/README.rst</code></td>
+</tr>
+<tr>
+<td>Migration plan</td>
+<td><code class="notranslate">docs/migration-plan.md</code></td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<h2>3. Product facts</h2>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>Fact</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td>Lexware Office Migrator</td>
+</tr>
+<tr>
+<td>Technical name</td>
+<td><code class="notranslate">lexware_migrator</code></td>
+</tr>
+<tr>
+<td>One line</td>
+<td>Migrate the data of a Lexware Office account into Odoo</td>
+</tr>
+<tr>
+<td>Maker</td>
+<td>bloopark systems GmbH &amp; Co. KG, Magdeburg, official Odoo partner</td>
+</tr>
+<tr>
+<td>Version</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>Odoo versions</td>
+<td>18.0, 19.0, 20.0 (one branch per version)</td>
+</tr>
+<tr>
+<td>Editions</td>
+<td>Community and Enterprise, on-premise and Odoo.sh</td>
+</tr>
+<tr>
+<td>Price</td>
+<td>Free. No paid tier. No feature behind a payment.</td>
+</tr>
+<tr>
+<td>Licence</td>
+<td>LGPL-3</td>
+</tr>
+<tr>
+<td>Odoo dependencies</td>
+<td>Accounting (<code class="notranslate">account</code>), Sales (<code class="notranslate">sale_management</code>), <code class="notranslate">mail</code></td>
+</tr>
+<tr>
+<td>Source system</td>
+<td>Lexware Office (formerly lexoffice), Public API <code class="notranslate">https://api.lexware.io/v1</code></td>
+</tr>
+<tr>
+<td>Contact</td>
+<td><a href="mailto:sales@bloopark.de">sales@bloopark.de</a></td>
+</tr>
+<tr>
+<td>Category</td>
+<td>Tools, data migration</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p>What it is: a <strong>one-time migration</strong> from Lexware Office into Odoo.<br>
+What it is not: a connector or a live sync. Do not write "sync",<br>
+"integration" or "connector" on the page.</p>
+<p>Target reader: a German company (or its Odoo partner or tax advisor) that<br>
+leaves Lexware Office and starts its accounting in Odoo.</p>
+<h2>4. Messages, in order of weight</h2>
+<ol>
+<li>Move from Lexware Office (formerly lexoffice) to Odoo.</li>
+<li>The documents keep their Lexware numbers. The open amounts in Odoo are the<br>
+same as in Lexware.</li>
+<li>The migrator only reads from Lexware. It sends GET requests only. It never<br>
+writes into the Lexware account.</li>
+<li>A second run makes no duplicate. It updates contacts, articles and draft<br>
+documents, and skips posted documents.</li>
+<li>Nothing wrong is posted. A document whose total differs from Lexware stays<br>
+a draft, and the log lists it.</li>
+<li>It runs inside Odoo. No separate service.</li>
+<li>It is free.</li>
+</ol>
+<h2>5. Features</h2>
+<h3>What is migrated</h3>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>Lexware Office</th>
+<th>Odoo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Contacts (customers, vendors, both)</td>
+<td>Contacts: company or person, customer or vendor number, VAT ID, email, phone, billing address. The shipping address becomes a delivery contact. A contact person becomes a child contact.</td>
+</tr>
+<tr>
+<td>Articles</td>
+<td>Products and services: number, GTIN, net price, unit, sales and purchase tax.</td>
+</tr>
+<tr>
+<td>Open quotations</td>
+<td>Quotations with the Lexware number.</td>
+</tr>
+<tr>
+<td>Open order confirmations</td>
+<td>Confirmed sales orders with the Lexware number.</td>
+</tr>
+<tr>
+<td>Invoices and down-payment invoices</td>
+<td>Posted customer invoices with the Lexware number, lines, discounts, taxes, payment term and the PDF. A closing invoice gets one negative line per down payment. A voided invoice is cancelled and keeps its number.</td>
+</tr>
+<tr>
+<td>Credit notes</td>
+<td>Posted credit notes, linked to their invoice, with the PDF.</td>
+</tr>
+<tr>
+<td>Bookkeeping vouchers (purchase and sales receipts)</td>
+<td>Vendor bills, refunds or customer invoices. One line per voucher item with posting category, tax rate and amount. The receipt file is attached.</td>
+</tr>
+<tr>
+<td>Payments</td>
+<td>Bank or cash payments, reconciled with the document. A cash discount or an irrecoverable receivable becomes a credit note that corrects the VAT (§ 17 UStG).</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<h3>How it works</h3>
+<ol>
+<li><strong>Connect.</strong> Enter the Lexware Office API key. <em>Test Connection</em> shows the<br>
+Lexware organization and each setup problem before the first run.</li>
+<li><strong>Map.</strong> <em>Fill Mappings</em> proposes the Odoo tax for each Lexware tax type<br>
+and rate on SKR03 or SKR04. Add an account for each posting category of<br>
+the vouchers. Common units map automatically.</li>
+<li><strong>Run.</strong> <em>Run Migration</em> starts a scheduled job. It commits after each<br>
+batch of 25 records. After a server restart or an API rate limit, it<br>
+continues at its position.</li>
+<li><strong>Check.</strong> The chatter shows the result of each step (created, updated,<br>
+skipped, failed, warnings). The log shows each failure and warning.</li>
+</ol>
+<h3>Scope options</h3>
+<ul>
+<li>Open items only (default): only the documents with an open amount.</li>
+<li>Full history: all finalized documents.</li>
+<li><em>Documents From</em>: only documents of a start date and later, for example the<br>
+first day of the fiscal year.</li>
+<li>Document files: attach the PDF of each document and the files of each<br>
+voucher.</li>
+<li>Open quotations and orders: on or off.</li>
+</ul>
+<h3>Standard Odoo flows</h3>
+<p>Invoices are posted, payments are reconciled, and cancelled invoices are<br>
+cancelled with the standard Odoo methods. The module has its own access<br>
+group (<em>Lexware Migration / Administrator</em>).</p>
+<h3>Quality assurance</h3>
+<ul>
+<li>Automated tests replay a recorded Lexware Office account. They check each<br>
+document type, the taxes, the payments, the cash discounts, the bad debts<br>
+and the rerun. The 20.0 branch has 23 test methods. The store page says 25.<br>
+On the website, write "more than 20 automated tests".</li>
+<li>Before each release, bloopark migrates a live Lexware Office test account<br>
+into a new Odoo database and compares each document with Lexware.</li>
+</ul>
+<h2>6. Requirements</h2>
+<ul>
+<li>German localization (<code class="notranslate">l10n_de</code>) with SKR03 or SKR04.</li>
+<li>Odoo Accounting and Sales.</li>
+<li>Company currency EUR. Tax rounding "Round Globally".</li>
+<li>A Lexware Office plan with the Public API. The API key comes from<br>
+Add-ons &gt; Public API in Lexware Office.</li>
+<li>A separate sales journal for the migration, because the documents keep<br>
+their Lexware numbers.</li>
+</ul>
+<h2>7. Limits (say them on the page, do not hide them)</h2>
+<ul>
+<li>EUR only.</li>
+<li>Lexware Office (cloud) only. Lexware desktop products (buchhalter,<br>
+faktura+auftrag) have no API and are out of scope.</li>
+<li>The Lexware API has no chart of accounts, no journal entries, no bank<br>
+transactions and no opening balance. The opening balance comes from the tax<br>
+advisor (DATEV).</li>
+<li>Dunnings, delivery notes, recurring templates and drafts are not migrated.</li>
+<li>Lexware allows 2 requests per second and at most 10,000 rows per list. A<br>
+larger account is migrated in parts with <em>Documents From</em>.</li>
+<li>A total can differ by one cent on documents with gross prices. Such a<br>
+document stays a draft and the log lists it.</li>
+<li>A negative payment item (for example a returned debit) is booked by hand.</li>
+</ul>
+<h2>8. Screenshots</h2>
+<p>All screenshots show Odoo 20 Enterprise in dark mode, 1440 x 900 pixels, with<br>
+the Lexware demo account. The data is fictitious (Muster Gastro GmbH, Erika<br>
+Musterfrau). The API key is masked. The company name on the screen is<br>
+"bloopark demo GmbH".</p>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>File</th>
+<th>Shows</th>
+<th>Suggested caption</th>
+<th>Use for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="notranslate">00-home-app.png</code></td>
+<td>Odoo home screen with the Lexware Migration app</td>
+<td>The migrator is an app inside Odoo.</td>
+<td>Intro, "runs inside Odoo"</td>
+</tr>
+<tr>
+<td><code class="notranslate">01-backend-form.png</code></td>
+<td>Backend form: connection, scope, journals, buttons Test Connection, Fill Mappings, Run Migration, state Done, chatter with the result of each step</td>
+<td>One form for the connection, the scope and the run.</td>
+<td><strong>Hero image</strong></td>
+</tr>
+<tr>
+<td><code class="notranslate">02-mappings.png</code></td>
+<td>Mappings tab: Lexware tax keys (<code class="notranslate">de:19</code>, <code class="notranslate">intraCommunitySupply:0</code>) and their Odoo taxes</td>
+<td>Each Lexware tax type and rate maps to an Odoo tax.</td>
+<td>Step "Map"</td>
+</tr>
+<tr>
+<td><code class="notranslate">03-log.png</code></td>
+<td>Log list: one line per step with the counts</td>
+<td>The log shows each step, failure and warning.</td>
+<td>Step "Check"</td>
+</tr>
+<tr>
+<td><code class="notranslate">04-invoices.png</code></td>
+<td>Customer invoices RE0001 to RE0008 with states Paid, Partially paid, Posted, Reversed, Cancelled</td>
+<td>Invoices keep their Lexware numbers and their payment state.</td>
+<td>"Documents keep their numbers"</td>
+</tr>
+<tr>
+<td><code class="notranslate">05-invoice-RE0005.png</code></td>
+<td>Invoice RE0005, partially paid, with the Lexware PDF beside it</td>
+<td>The invoice in Odoo, with the original Lexware PDF attached.</td>
+<td>Invoices feature</td>
+</tr>
+<tr>
+<td><code class="notranslate">06-credit-notes.png</code></td>
+<td>Credit notes GS0001, GS0002</td>
+<td>Credit notes are linked to their invoices.</td>
+<td>Credit notes feature</td>
+</tr>
+<tr>
+<td><code class="notranslate">07-vendor-bills.png</code></td>
+<td>Vendor bills from bookkeeping vouchers</td>
+<td>Bookkeeping vouchers become vendor bills.</td>
+<td>Vouchers feature</td>
+</tr>
+<tr>
+<td><code class="notranslate">08-vendor-bill.png</code></td>
+<td>Vendor bill with posting category "Wareneinkauf", 7 % tax and the receipt file</td>
+<td>The voucher with its posting category and its receipt.</td>
+<td>Vouchers feature</td>
+</tr>
+<tr>
+<td><code class="notranslate">09-contacts.png</code></td>
+<td>Customers with email, phone, country, delivery contact and contact person</td>
+<td>Customers and vendors with addresses and contact persons.</td>
+<td>Contacts feature</td>
+</tr>
+<tr>
+<td><code class="notranslate">10-products.png</code></td>
+<td>Products with price and article number</td>
+<td>Articles become products with price and number.</td>
+<td>Articles feature</td>
+</tr>
+<tr>
+<td><code class="notranslate">11-sales-order-AB0001.png</code></td>
+<td>Confirmed sales order AB0001 from a Lexware order confirmation</td>
+<td>Open order confirmations become confirmed sales orders.</td>
+<td>Quotations and orders feature</td>
+</tr>
+<tr>
+<td><code class="notranslate">12-payments.png</code></td>
+<td>Customer payments, Paid and Reconciled</td>
+<td>Payments are reconciled with their documents.</td>
+<td>Payments feature</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p>Alt text: use the "Shows" column.</p>
+<h2>9. Suggested page structure</h2>
+<ol>
+<li><strong>Hero.</strong> Headline, one sentence, call to action, <code class="notranslate">01-backend-form.png</code>.<br>
+Badges: Free, Odoo 18 / 19 / 20, LGPL-3.</li>
+<li><strong>Flow strip.</strong> Lexware Office (Public API, read only) → Lexware Office<br>
+Migrator (mapping, batches, log, rerun) → Odoo (contacts, products,<br>
+invoices, bills, payments).</li>
+<li><strong>Six promises.</strong> Runs inside Odoo. Reads only. Documents keep their<br>
+numbers. Open items or full history. Rerun without duplicates. Every<br>
+failure in a log.</li>
+<li><strong>What is migrated.</strong> Six cards: Contacts, Articles, Quotations and<br>
+orders, Invoices and credit notes, Bookkeeping vouchers, Payments. One<br>
+screenshot each.</li>
+<li><strong>How it works.</strong> Four steps: Connect, Map, Run, Check. Screenshots 01,<br>
+02, 03.</li>
+<li><strong>Quality assurance.</strong> Automated tests and the live test.</li>
+<li><strong>Requirements and limits.</strong> Two lists, from sections 6 and 7.</li>
+<li><strong>Price.</strong> "The module is free." If you install Odoo modules yourself, you<br>
+do not need us. If you want help with the mapping, the run or the check of<br>
+the migrated data, write to us.</li>
+<li><strong>Call to action.</strong> "Request help with the migration", <a href="mailto:sales@bloopark.de">sales@bloopark.de</a>.</li>
+<li><strong>About bloopark.</strong> bloopark systems is an official Odoo partner based in<br>
+Magdeburg. It supports mid-sized and larger companies across the DACH<br>
+region on ERP, commerce and integration projects.</li>
+</ol>
+<h2>10. Copy</h2>
+<p>Headline options:</p>
+<ul>
+<li>Move from Lexware Office to Odoo.</li>
+<li>Lexware Office to Odoo, with your invoice numbers and your open items.</li>
+</ul>
+<p>Subline:</p>
+<blockquote>
+<p>The migrator reads your contacts, articles, invoices, credit notes,<br>
+bookkeeping vouchers and payments through the Lexware Office Public API and<br>
+creates them in Odoo. Your documents keep their Lexware numbers, and the<br>
+open amounts are the same as in Lexware.</p>
+</blockquote>
+<p>Search terms (the readers are German): Lexware Office Odoo Migration,<br>
+lexoffice zu Odoo, lexoffice Odoo Umstieg, Lexware Office Daten nach Odoo<br>
+übertragen, lexoffice Rechnungen importieren Odoo, Odoo SKR03 SKR04<br>
+Migration.</p>
+<h2>11. Rules for the page</h2>
+<ul>
+<li>State facts only. No superlative and no number that is not in this file.</li>
+<li>"Lexware", "Lexware Office" and "lexoffice" are trademarks of their owner.<br>
+Write "Lexware Office (formerly lexoffice)" at the first mention. Do not<br>
+use the Lexware logo. Do not suggest a partnership with Lexware.</li>
+<li>Do not promise a complete accounting migration. The opening balance, the<br>
+chart of accounts and the bank transactions are not in the Lexware API.</li>
+<li>The call to action is contact with bloopark, not a purchase.</li>
+<li>The repository is private. Do not link to it from the public page.</li>
+</ul>
+<h2>12. Open points</h2>
+<ul>
+<li>Page language: not decided. The copy here is English. The readers are<br>
+German, so a German version is likely needed.</li>
+<li>The link to the Odoo Apps store listing: not available yet.</li>
+<li>The screenshots are in dark mode. Ask for light mode screenshots if the<br>
+website design needs them.</li>
+</ul>
+<h2>All screenshots, with download URLs</h2>
+<figure id="00-home-app.png"><img src="https://bashierelbashier.github.io/lexware-migrator-handoff/00-home-app.png" alt="Odoo home screen with the Lexware Migration app" width="1440" height="900"><figcaption><code>00-home-app.png</code>: Odoo home screen with the Lexware Migration app<br><a href="https://bashierelbashier.github.io/lexware-migrator-handoff/00-home-app.png">https://bashierelbashier.github.io/lexware-migrator-handoff/00-home-app.png</a></figcaption></figure>
+<figure id="01-backend-form.png"><img src="https://bashierelbashier.github.io/lexware-migrator-handoff/01-backend-form.png" alt="Backend form: connection, scope, journals, buttons Test Connection, Fill Mappings, Run Migration, state Done, chatter with the result of each step" width="1440" height="900"><figcaption><code>01-backend-form.png</code>: Backend form: connection, scope, journals, buttons Test Connection, Fill Mappings, Run Migration, state Done, chatter with the result of each step<br><a href="https://bashierelbashier.github.io/lexware-migrator-handoff/01-backend-form.png">https://bashierelbashier.github.io/lexware-migrator-handoff/01-backend-form.png</a></figcaption></figure>
+<figure id="02-mappings.png"><img src="https://bashierelbashier.github.io/lexware-migrator-handoff/02-mappings.png" alt="Mappings tab: Lexware tax keys (`de:19`, `intraCommunitySupply:0`) and their Odoo taxes" width="1440" height="900"><figcaption><code>02-mappings.png</code>: Mappings tab: Lexware tax keys (`de:19`, `intraCommunitySupply:0`) and their Odoo taxes<br><a href="https://bashierelbashier.github.io/lexware-migrator-handoff/02-mappings.png">https://bashierelbashier.github.io/lexware-migrator-handoff/02-mappings.png</a></figcaption></figure>
+<figure id="03-log.png"><img src="https://bashierelbashier.github.io/lexware-migrator-handoff/03-log.png" alt="Log list: one line per step with the counts" width="1440" height="900"><figcaption><code>03-log.png</code>: Log list: one line per step with the counts<br><a href="https://bashierelbashier.github.io/lexware-migrator-handoff/03-log.png">https://bashierelbashier.github.io/lexware-migrator-handoff/03-log.png</a></figcaption></figure>
+<figure id="04-invoices.png"><img src="https://bashierelbashier.github.io/lexware-migrator-handoff/04-invoices.png" alt="Customer invoices RE0001 to RE0008 with states Paid, Partially paid, Posted, Reversed, Cancelled" width="1440" height="900"><figcaption><code>04-invoices.png</code>: Customer invoices RE0001 to RE0008 with states Paid, Partially paid, Posted, Reversed, Cancelled<br><a href="https://bashierelbashier.github.io/lexware-migrator-handoff/04-invoices.png">https://bashierelbashier.github.io/lexware-migrator-handoff/04-invoices.png</a></figcaption></figure>
+<figure id="05-invoice-RE0005.png"><img src="https://bashierelbashier.github.io/lexware-migrator-handoff/05-invoice-RE0005.png" alt="Invoice RE0005, partially paid, with the Lexware PDF beside it" width="1440" height="900"><figcaption><code>05-invoice-RE0005.png</code>: Invoice RE0005, partially paid, with the Lexware PDF beside it<br><a href="https://bashierelbashier.github.io/lexware-migrator-handoff/05-invoice-RE0005.png">https://bashierelbashier.github.io/lexware-migrator-handoff/05-invoice-RE0005.png</a></figcaption></figure>
+<figure id="06-credit-notes.png"><img src="https://bashierelbashier.github.io/lexware-migrator-handoff/06-credit-notes.png" alt="Credit notes GS0001, GS0002" width="1440" height="900"><figcaption><code>06-credit-notes.png</code>: Credit notes GS0001, GS0002<br><a href="https://bashierelbashier.github.io/lexware-migrator-handoff/06-credit-notes.png">https://bashierelbashier.github.io/lexware-migrator-handoff/06-credit-notes.png</a></figcaption></figure>
+<figure id="07-vendor-bills.png"><img src="https://bashierelbashier.github.io/lexware-migrator-handoff/07-vendor-bills.png" alt="Vendor bills from bookkeeping vouchers" width="1440" height="900"><figcaption><code>07-vendor-bills.png</code>: Vendor bills from bookkeeping vouchers<br><a href="https://bashierelbashier.github.io/lexware-migrator-handoff/07-vendor-bills.png">https://bashierelbashier.github.io/lexware-migrator-handoff/07-vendor-bills.png</a></figcaption></figure>
+<figure id="08-vendor-bill.png"><img src="https://bashierelbashier.github.io/lexware-migrator-handoff/08-vendor-bill.png" alt="Vendor bill with posting category &quot;Wareneinkauf&quot;, 7 % tax and the receipt file" width="1440" height="900"><figcaption><code>08-vendor-bill.png</code>: Vendor bill with posting category &quot;Wareneinkauf&quot;, 7 % tax and the receipt file<br><a href="https://bashierelbashier.github.io/lexware-migrator-handoff/08-vendor-bill.png">https://bashierelbashier.github.io/lexware-migrator-handoff/08-vendor-bill.png</a></figcaption></figure>
+<figure id="09-contacts.png"><img src="https://bashierelbashier.github.io/lexware-migrator-handoff/09-contacts.png" alt="Customers with email, phone, country, delivery contact and contact person" width="1440" height="900"><figcaption><code>09-contacts.png</code>: Customers with email, phone, country, delivery contact and contact person<br><a href="https://bashierelbashier.github.io/lexware-migrator-handoff/09-contacts.png">https://bashierelbashier.github.io/lexware-migrator-handoff/09-contacts.png</a></figcaption></figure>
+<figure id="10-products.png"><img src="https://bashierelbashier.github.io/lexware-migrator-handoff/10-products.png" alt="Products with price and article number" width="1440" height="900"><figcaption><code>10-products.png</code>: Products with price and article number<br><a href="https://bashierelbashier.github.io/lexware-migrator-handoff/10-products.png">https://bashierelbashier.github.io/lexware-migrator-handoff/10-products.png</a></figcaption></figure>
+<figure id="11-sales-order-AB0001.png"><img src="https://bashierelbashier.github.io/lexware-migrator-handoff/11-sales-order-AB0001.png" alt="Confirmed sales order AB0001 from a Lexware order confirmation" width="1440" height="900"><figcaption><code>11-sales-order-AB0001.png</code>: Confirmed sales order AB0001 from a Lexware order confirmation<br><a href="https://bashierelbashier.github.io/lexware-migrator-handoff/11-sales-order-AB0001.png">https://bashierelbashier.github.io/lexware-migrator-handoff/11-sales-order-AB0001.png</a></figcaption></figure>
+<figure id="12-payments.png"><img src="https://bashierelbashier.github.io/lexware-migrator-handoff/12-payments.png" alt="Customer payments, Paid and Reconciled" width="1440" height="900"><figcaption><code>12-payments.png</code>: Customer payments, Paid and Reconciled<br><a href="https://bashierelbashier.github.io/lexware-migrator-handoff/12-payments.png">https://bashierelbashier.github.io/lexware-migrator-handoff/12-payments.png</a></figcaption></figure>
+<h2>Brand assets, with download URLs</h2>
+<ul>
+<li>Module icon (SVG): <a href="https://bashierelbashier.github.io/lexware-migrator-handoff/icon.svg">https://bashierelbashier.github.io/lexware-migrator-handoff/icon.svg</a><br><img src="https://bashierelbashier.github.io/lexware-migrator-handoff/icon.svg" alt="Module icon (SVG)" height="64"></li>
+<li>Module icon (PNG): <a href="https://bashierelbashier.github.io/lexware-migrator-handoff/icon.png">https://bashierelbashier.github.io/lexware-migrator-handoff/icon.png</a><br><img src="https://bashierelbashier.github.io/lexware-migrator-handoff/icon.png" alt="Module icon (PNG)" height="64"></li>
+<li>bloopark logo (SVG): <a href="https://bashierelbashier.github.io/lexware-migrator-handoff/bloopark-logo.svg">https://bashierelbashier.github.io/lexware-migrator-handoff/bloopark-logo.svg</a><br><img src="https://bashierelbashier.github.io/lexware-migrator-handoff/bloopark-logo.svg" alt="bloopark logo (SVG)" height="64"></li>
+</ul>
+</body>
+</html>
